@@ -45,7 +45,8 @@ export default function loginHandler(settings: IAuth0Settings, clientProvider: I
       throw new Error('Response is not available');
     }
 
-    const { state = (authParams && authParams.state) || base64url(randomBytes(48)), ...authParams } = (options && options.authParams) || {};
+    const authParams = (options && options.authParams) || {};
+    const state = (authParams && authParams.state) || base64url(randomBytes(48));
 
     // Create the authorization url.
     const client = await clientProvider();
