@@ -5,7 +5,7 @@ function initAuth0(settings) {
     if (isBrowser) {
         return require('./instance.browser').default(settings);
     }
-    return require('./instance.node').default(settings);
+    return require('./instance.node.js').default(settings);
 }
 exports.initAuth0 = initAuth0;
 /**
